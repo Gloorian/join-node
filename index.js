@@ -4,7 +4,8 @@ var fs = require('fs'),
 	start = 2;
 	folder = process.argv[start],
 	type = process.argv[start + 1] ? process.argv[start + 1] : 'js',
-	min = false, 
+	min = false,
+	extension = type === '*' ? '' : '.' + type,
 	suffix = '';
 
 if(process.argv.length <= 2) {
@@ -28,12 +29,12 @@ exist_module.exists(process.cwd() + '/' + folder, function(exists) {
 			console.log('Go into ' + folder);
 			if(files.length) {
 				files.forEach(function(file) {
-					if(file.substr(file.lastIndexOf('.') + 1, file.length - 1) === type) {
+					if(type === '*' || file.substr(file.lastIndexOf('.') + 1, file.length - 1) === type) {
 						console.log('Add content of the file: ' + file);
 						content += fs.readFileSync(process.cwd() + '/' + folder + file, 'utf-8');
 					}
 				});
-				var name = folder.substr(0, folder.length - 2) + '_joined' + suffix + '.' + type;
+				var name = folder.substr(0, folder.length - 2) + '_joined' + suffix + extension;
 				exist_module.exists(process.cwd() + '/' + name, function(exists) {
 					if(exists) {
 						throw new Error('A file has already been created !');

@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "A module to join multiple files and minify them",
   "main": "index.js",
-  "scripts": {
-    "join": "index.js"
+  "bin": {
+    "join": "index"
   },
   "repository": {
     "type": "git",
