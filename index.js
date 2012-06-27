@@ -35,7 +35,7 @@ exist_module.exists(process.cwd() + '/' + folder, function(exists) {
 						content += fs.readFileSync(process.cwd() + '/' + folder + file, 'utf-8');
 					}
 				});
-				var name = folder.substr(0, folder.length - 2) + '_joined' + suffix + extension;
+				var name = folder.substr(0, folder.length - 1) + '_joined' + suffix + extension;
 				exist_module.exists(process.cwd() + '/' + name, function(exists) {
 					if(exists) {
 						throw new Error('A file has already been created !');
