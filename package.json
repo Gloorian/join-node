@@ -4,8 +4,9 @@
 	"description": "A module to join multiple files and minify them",
 	"main": "index.js",
 	"bin": {
-		"join": "index"
+		"join": "index.js"
 	},
+	"preferGlobal": "true",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Gloorian/join-node.git"
@@ -21,5 +22,8 @@
 		"css"
 	],
 	"author": "Gloorian",
-	"license": "BSD"
+	"license": "BSD",
+	"engines": {
+		"node": "*"
+	}
 }

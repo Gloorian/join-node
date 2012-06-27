@@ -1,8 +1,9 @@
+#!/usr/bin/env node
 var fs = require('fs'),
 	compressor = require('node-minify'),
 	content = '',
 	start = 2;
-	folder = process.argv[start],
+	folder = process.argv[start] === '.' ? process.cwd() : process.argv[start],
 	type = process.argv[start + 1] ? process.argv[start + 1] : 'js',
 	min = false,
 	extension = type === '*' ? '' : '.' + type,
